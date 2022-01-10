@@ -5,9 +5,9 @@ import UsersData from '../../data';
 
 
 
-const User = () => {
+const User = (props) => {
   return (
-    UsersData.map((user, id, phone) => {
+    UsersData.map((user, id) => {
       return (
         <div className="col-md-4 col-sm-4 col-xs-6 mt-4" key={id}>
           <div className="card">
@@ -24,7 +24,7 @@ const User = () => {
               <li className="list-group-item"><span className='fw-bold'>Income:</span> {user.income}</li>
             </ul>
             <div className="card-body">
-              <button className="btn btn-dark">
+              <button className="btn btn-dark" onClick={ () => props.handleAddUser(user) }>
                 Add to cart <FontAwesomeIcon icon={faPlus} />
               </button>
             </div>
